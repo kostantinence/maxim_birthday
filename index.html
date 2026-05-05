@@ -1,141 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>З Днем Народження!</title>
 
     <style>
         @import url('https://fonts.cdnfonts.com/css/soloist-halftone');
 
-body {
-    margin: 0;
-    overflow: hidden;
-    background: black;
-    //font-family: Arial, sans-serif;
-    font-family: 'Soloist Gradient', sans-serif;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: black;
+            /* Исправлено: в CSS комментарии только такие */
+            font-family: 'Soloist Gradient', sans-serif;
+        }
 
-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-/* TEXT */
-.text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.6) rotate(-8deg);
-    text-align: center;
-    opacity: 0;
-    animation: textIn 2s ease-out forwards 2s;
-    width: 90%;
-}
+        /* TEXT */
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.6) rotate(-8deg);
+            text-align: center;
+            opacity: 0;
+            animation: textIn 2s ease-out forwards 2s;
+            width: 90%;
+            z-index: 10;
+            pointer-events: none;
+        }
 
-.small {
-    font-size: clamp(14px, 2vw, 22px);
-    color: #8ecbff;
-    letter-spacing: 3px;
-}
+        .small {
+            font-size: clamp(14px, 2vw, 22px);
+            color: #8ecbff;
+            letter-spacing: 2px;
+            margin-top: 5px;
+        }
 
-.big {
-    font-size: clamp(32px, 6vw, 72px);
-    font-weight: 900;
-    color: white;
-    line-height: 1.1;
-    text-shadow:
-        0 0 10px #00aaff,
-        0 0 25px #0088ff,
-        2px 2px 0 black,
-        4px 4px 10px rgba(0,0,0,0.8);
-animation: shakeAnim 0.4s ease-in-out infinite;
-}
+        .big {
+            font-size: clamp(32px, 6vw, 72px);
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            text-shadow:
+                0 0 10px #00aaff,
+                0 0 25px #0088ff,
+                2px 2px 0 black,
+                4px 4px 10px rgba(0,0,0,0.8);
+            animation: shakeAnim 0.4s ease-in-out infinite;
+        }
 
-/* TEXT ANIMATION */
-@keyframes textIn {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.3) rotate(-15deg);
-    }
-    60% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.1) rotate(-6deg);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1) rotate(-8deg);
-    }
-}
+        /* TEXT ANIMATION */
+        @keyframes textIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.3) rotate(-15deg);
+            }
+            60% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.1) rotate(-6deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) rotate(-8deg);
+            }
+        }
 
-/* BLUE FLASH */
-.flash {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    background: radial-gradient(circle, rgba(0,150,255,0.9) 0%, rgba(0,0,0,0) 70%);
-    opacity: 0;
-    pointer-events: none;
-    animation: flashAnim 1s ease-out forwards;
-}
+        /* BLUE FLASH */
+        .flash {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(0,150,255,0.9) 0%, rgba(0,0,0,0) 70%);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
 
-@keyframes flashAnim {
-    0% { opacity: 0; transform: scale(0.2); }
-    30% { opacity: 1; }
-    100% { opacity: 0; transform: scale(2.5); }
-}
+        @keyframes flashAnim {
+            0% { opacity: 0; transform: scale(0.2); }
+            30% { opacity: 1; }
+            100% { opacity: 0; transform: scale(2.5); }
+        }
 
-#controls {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  z-index: 1;
-}
+        #controls {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+        }
 
-button {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  font-size: 16px;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 10px;
-  margin: 2px 1px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  &:hover {
-    background-color: #25902950;
-  }
-  &:active {
-    background-color: #00FFFFCC;
-  }
-}
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-/* CAMERA SHAKE */
-.shake {
-    animation: shakeAnim 0.4s ease-in-out;
-}
+        button:hover { background-color: #45a049; }
 
-@keyframes shakeAnim {
-    0% { transform: translate(0,0); }
-    25% { transform: translate(-4px, 2px) scale(0.98); }
-    50% { transform: translate(2px, -1px); }
-    75% { transform: translate(-4px, 2px) scale(0.99); }
-    100% { transform: translate(0,0); }
-}
+        @keyframes shakeAnim {
+            0% { transform: translate(0,0); }
+            25% { transform: translate(-2px, 1px); }
+            50% { transform: translate(1px, -1px); }
+            75% { transform: translate(-2px, 1px); }
+            100% { transform: translate(0,0); }
+        }
     </style>
-
 </head>
 <body>
-      <canvas id="canvas"></canvas>
+
+<canvas id="canvas"></canvas>
 <div class="flash" id="flash"></div>
 
 <div class="text">
@@ -153,85 +141,90 @@ button {
 </div>
 
 <div id="controls">
-  <button id="fullscreenBtn">⤢</button>
+    <button id="fullscreenBtn">⤢</button>
 </div>
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
 
-let w, h;
-function resize() {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
-}
-window.addEventListener("resize", resize);
-resize();
+<!-- ВЕСЬ JS ДОЛЖЕН БЫТЬ ВНУТРИ ТЕГА SCRIPT -->
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
 
-let stars = [];
-const STAR_COUNT = 1200;
+    let w, h;
+    function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener("resize", resize);
+    resize();
 
-for (let i = 0; i < STAR_COUNT; i++) {
-    stars.push({
-        x: (Math.random() - 0.5) * w,
-        y: (Math.random() - 0.5) * h,
-        z: Math.random() * w
-    });
-}
+    let stars = [];
+    const STAR_COUNT = 1200;
 
-let speed = 2;
-let maxSpeed = 30;
-let flashTriggered = false;
+    for (let i = 0; i < STAR_COUNT; i++) {
+        stars.push({
+            x: (Math.random() - 0.5) * w,
+            y: (Math.random() - 0.5) * h,
+            z: Math.random() * w
+        });
+    }
 
-function animate() {
-    // MOTION BLUR (trail effect)
-    ctx.fillStyle = "rgba(0,0,0,0.25)";
-    ctx.fillRect(0, 0, w, h);
+    let speed = 2;
+    let maxSpeed = 30;
+    let flashTriggered = false;
 
-    for (let s of stars) {
-        let prevZ = s.z;
-        s.z -= speed;
+    function animate() {
+        ctx.fillStyle = "rgba(0,0,0,0.25)";
+        ctx.fillRect(0, 0, w, h);
 
-        if (s.z <= 0) {
-            s.x = (Math.random() - 0.5) * w;
-            s.y = (Math.random() - 0.5) * h;
-            s.z = w;
+        for (let s of stars) {
+            let prevZ = s.z;
+            s.z -= speed;
+
+            if (s.z <= 0) {
+                s.x = (Math.random() - 0.5) * w;
+                s.y = (Math.random() - 0.5) * h;
+                s.z = w;
+            }
+
+            let k = 128 / s.z;
+            let px = s.x * k + w / 2;
+            let py = s.y * k + h / 2;
+
+            let kPrev = 128 / prevZ;
+            let pxPrev = s.x * kPrev + w / 2;
+            let pyPrev = s.y * kPrev + h / 2;
+
+            ctx.strokeStyle = "rgba(120,180,255,0.8)";
+            ctx.lineWidth = (1 - s.z / w) * 3;
+            ctx.beginPath();
+            ctx.moveTo(pxPrev, pyPrev);
+            ctx.lineTo(px, py);
+            ctx.stroke();
         }
 
-        let k = 128 / s.z;
-        let px = s.x * k + w / 2;
-        let py = s.y * k + h / 2;
+        if (speed < maxSpeed) {
+            speed += 0.15;
+        }
 
-        let kPrev = 128 / prevZ;
-        let pxPrev = s.x * kPrev + w / 2;
-        let pyPrev = s.y * kPrev + h / 2;
+        if (speed > 20 && !flashTriggered) {
+            document.getElementById("flash").style.animation = "flashAnim 1s ease-out forwards";
+            flashTriggered = true;
+        }
 
-        // STAR TRAIL
-        ctx.strokeStyle = "rgba(120,180,255,0.8)";
-        ctx.lineWidth = (1 - s.z / w) * 3;
-        ctx.beginPath();
-        ctx.moveTo(pxPrev, pyPrev);
-        ctx.lineTo(px, py);
-        ctx.stroke();
+        requestAnimationFrame(animate);
     }
 
-    // SPEED RAMP
-    if (speed < maxSpeed) {
-        speed += 0.15;
-    }
+    animate();
 
-    // TRIGGER BLUE FLASH
-    if (speed > 20 && !flashTriggered) {
-        document.getElementById("flash").style.animation = "flashAnim 1s ease-out forwards";
-        flashTriggered = true;
-    }
+    const btn = document.getElementById('fullscreenBtn');
+    if (btn) btn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    });
+</script>
 
-    requestAnimationFrame(animate);
-}
-
-animate();
-
-const btn = document.getElementById('fullscreenBtn');
-if (btn) btn.addEventListener('click', () =>
-    document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen()
-);
 </body>
 </html>
